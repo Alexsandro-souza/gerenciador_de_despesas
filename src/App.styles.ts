@@ -29,6 +29,7 @@ export const Body = styled.div`
     width: 80%;
     background-color: #9b9898;
     min-height: 500px;
+    margin-bottom: 30px;
 
 `;
 
