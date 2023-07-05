@@ -1,10 +1,12 @@
 import React from 'react';
-import * as A from './style';
+import * as A from './AreaInfoStyle';
 import {monthYearString} from '../../helpers/dateFilter';
+import {Resume} from '../info/Resume';
+
 
 type props={
     filterDate: string;
-    onMonthChange: (newMonth)=> void;
+    onMonthChange: (prevMonth)=> void;
     revenues: number;
     expenses: number;
 }
@@ -34,7 +36,10 @@ export const AreaInfo = ({filterDate, onMonthChange, revenues, expenses}:props) 
             </A.filterMonth>
 
             <A.resumeInfo>
-                    sasasasasa
+                    <Resume title={'Receitas'} value={revenues}/>
+                    <Resume title={'Despesas'} value={expenses}/>
+                    <Resume title={'Desvio'} value={(revenues - expenses).toFixed(2)}
+                    color={(revenues - expenses).toFixed(2) < 0 ? "red": "#55ca80"}/>
             </A.resumeInfo>
             
 

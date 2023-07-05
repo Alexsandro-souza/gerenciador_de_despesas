@@ -22,6 +22,25 @@ import { AreaInfo } from './components/info/AreaInfo';
 
   }, [itemsList, currentDate])
 
+  useEffect(()=>{
+    let expenseCount = 0;
+    let revenueCount = 0;
+
+    
+      for (let i in filterItemsList){
+        if(category[filterItemsList[i].category].expense){
+          expenseCount += filterItemsList[i].value    
+        }else{
+          revenueCount += filterItemsList[i].value;   
+        }        
+        
+      }
+      setRevenues(revenueCount);
+      setExpenses(expenseCount)
+      
+  },
+  [filterItemsList])
+
   const handleMonthChange = (newMonth:string)=>{
     setCurrentDate(newMonth)
 
