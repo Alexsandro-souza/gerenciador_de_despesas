@@ -1,10 +1,13 @@
-import {item} from '../tipagem/typesItem';
+import {typesItem} from './tipagem/typesItem';
 
 
-export const items : item[] = [
-    {date : new Date(2023, 5, 28), category : 'food', title : 'Gorduroso', value : 30.00},
-    {date : new Date(2023, 6, 8), category : 'food', title : 'Gorduroso', value : 60.00},
+export const items : typesItem[] = [
+    {date : new Date(2023, 6, 28), category : 'food', title : 'Gorduroso', value : 30.00},
+    {date : new Date(2023, 4, 8), category : 'food', title : 'Gorduroso', value : 60.00},
     {date : new Date(2022, 4, 20), category : 'food', title : 'Girafas', value : 50.00},
-    {date : new Date(2023, 4, 20), category : 'salary', title : 'Wantel', value : 5000.20}
+    {date : new Date(2023, 6, 10), category : 'fixed', title : 'Água', value : 575.60},
+    {date : new Date(2023, 6, 5), category : 'entertainment', title : 'Shopping', value : 1500.50},
+    {date : new Date(2023, 6, 30), category : 'fixed', title : 'Terreno', value : 4000.00},
+    {date : new Date(2024, 1, 2), category : 'salary', title : 'DevSolution', value : 10000.20},
 
-]
+];
