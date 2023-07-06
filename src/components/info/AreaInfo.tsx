@@ -39,7 +39,7 @@ export const AreaInfo = ({filterDate, onMonthChange, revenues, expenses}:props) 
                     <Resume title={'Receitas'} value={revenues}/>
                     <Resume title={'Despesas'} value={expenses}/>
                     <Resume title={'Desvio'} value={(revenues - expenses).toFixed(2)}
-                    color={(revenues - expenses).toFixed(2) < 0 ? "red": "#55ca80"}/>
+                    color={((revenues - expenses).toFixed(2)) < 0 ? "red": "#55ca80"}/>
             </A.resumeInfo>
             
 

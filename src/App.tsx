@@ -8,6 +8,7 @@ import {typesItem} from './data/tipagem/typesItem';
 import {getCurrentMonth, filterListOfMonth} from './helpers/dateFilter';
 import { Table } from './components/table/table';
 import { AreaInfo } from './components/info/AreaInfo';
+import {InputForm} from './components/input/InputForm';
 
  const App = () =>{
   const [itemsList, setItemsList] = useState(items);
@@ -46,6 +47,10 @@ import { AreaInfo } from './components/info/AreaInfo';
 
   }
 
+  const handleList = (newItem: typesItem) => {
+    setItemsList(prevList =>[...prevList, newItem]);
+  };
+
   return(
     <>
       <A.Container/>
@@ -61,7 +66,7 @@ import { AreaInfo } from './components/info/AreaInfo';
           />
           
           
-          {/*inserções*/}
+          <InputForm addInList={handleList}/>
           
           
           <Table list={filterItemsList}/>

@@ -20,7 +20,7 @@ return(
         </A.tableCollumn>
         <A.tableCollumn>{item.title}</A.tableCollumn>
         <A.tableCollumn>
-            <A.value color={category[item.category].expense ? 'red' : 'green'}>
+            <A.value color={category[item.category].expense ? 'red' : '#55ca80'}>
                 R$ {item.value}
             </A.value>
         </A.tableCollumn>
