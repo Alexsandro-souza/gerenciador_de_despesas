@@ -71,7 +71,7 @@ import {InputForm} from './components/input/InputForm';
           
           <Table list={filterItemsList}/>
 
-            <h2>{currentDate}</h2>
+            
             
 
         </A.Body>

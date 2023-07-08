@@ -8,6 +8,8 @@ export const table = styled.table`
     box-shadow: 12px 8px 8px -6px rgba(168,162,162,0.49);
     -webkit-box-shadow: 12px 8px 8px -6px rgba(168,162,162,0.49);
     -moz-box-shadow: 12px 8px 8px -6px rgba(168,162,162,0.49);
+    position: absolute;
+    top: 125px;
 
 `;
 

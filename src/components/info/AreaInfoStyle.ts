@@ -10,6 +10,8 @@ export const container = styled.div`
     -webkit-box-shadow: 12px 8px 8px -6px rgba(168,162,162,0.49);
     -moz-box-shadow: 12px 8px 8px -6px rgba(168,162,162,0.49);
     display: flex;
+    position: absolute;
+    top: -55px;
 `;
 
 export const filterMonth = styled.div`

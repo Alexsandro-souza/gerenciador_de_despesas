@@ -25,6 +25,9 @@ export const AreaInfo = ({filterDate, onMonthChange, revenues, expenses}:props) 
         prevMonth.setMonth(prevMonth.getMonth()+1)
         onMonthChange(`${prevMonth.getFullYear()} - ${prevMonth.getMonth()+1}`);
     }
+
+
+
     return(
     <>
         <A.container>
@@ -38,8 +41,8 @@ export const AreaInfo = ({filterDate, onMonthChange, revenues, expenses}:props) 
             <A.resumeInfo>
                     <Resume title={'Receitas'} value={revenues}/>
                     <Resume title={'Despesas'} value={expenses}/>
-                    <Resume title={'Desvio'} value={(revenues - expenses).toFixed(2)}
-                    color={((revenues - expenses).toFixed(2)) < 0 ? "red": "#55ca80"}/>
+                    <Resume title={'Desvio'} value={(revenues - expenses)}
+                    color={(revenues - expenses) < 0 ? "red": "#55ca80"}/>
             </A.resumeInfo>
             
 
