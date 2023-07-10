@@ -27,7 +27,7 @@ export const InputForm = ({addInList}:props)=>{
             date: formatDate(date),
             category : categorys,
             title : title,
-            value : parseFloat(value)
+            value : parseFloat(value) // entender como posso servir o valor do setValue como número
         })
         clear();
     }
@@ -46,6 +46,8 @@ export const InputForm = ({addInList}:props)=>{
         return new Date(parseInt(year), parseInt(month)-1, parseInt(day))            
     }
 
+    
+
     const handleChangeDate = (e)=>{setDate(e.target.value)}
     const handleChangeCategory = (e)=> setCategory(e.target.value);
     const handleChangeTitle = (e)=> setTitle(e.target.value);
@@ -60,11 +62,11 @@ export const InputForm = ({addInList}:props)=>{
                 <A.containerWrape>
                     <A.wrape>
                         <A.title>Data</A.title>
-                        <A.input  name='data' value={date} type='date' onChange={handleChangeDate}/>
+                        <A.input width={50} name='data' value={date} type='date' onChange={handleChangeDate}/>
                     </A.wrape>
                     <A.wrape>
                         <A.title>Categoria</A.title>
-                        <A.inputCategory padding={0.5} name='categoria' value={categorys} onChange={handleChangeCategory}>
+                        <A.inputCategory width={100} padding={0.5} name='categoria' value={categorys} onChange={handleChangeCategory}>
                             <>
                             <A.optionCategory></A.optionCategory>
                             {categoryKeys.map((item,index)=>{
@@ -76,11 +78,11 @@ export const InputForm = ({addInList}:props)=>{
                     </A.wrape>
                     <A.wrape>
                         <A.title>Titulo</A.title>
-                        <A.input padding={1.4} name='titulo' value={title} type='text'onChange={handleChangeTitle}/>
+                        <A.input width={100} padding={1.4} name='titulo' value={title} type='text'onChange={handleChangeTitle}/>
                     </A.wrape>
                     <A.wrape>
                         <A.title>Valor</A.title>
-                        <A.input padding={1.4} name='valor' value={value} type='text' onChange={handleChangeValue}/>
+                        <A.input width={60} padding={1.4} name='valor' value={value} type='text' onChange={handleChangeValue}/>
                     </A.wrape>
                 </A.containerWrape>
                             
