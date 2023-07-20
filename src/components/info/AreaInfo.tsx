@@ -1,7 +1,8 @@
 import React from 'react';
 import * as A from './AreaInfoStyle';
 import {monthYearString} from '../../helpers/dateFilter';
-import {Resume} from '../info/Resume';
+import {Resume, ResumeDetour} from '../info/Resume';
+import {valueFormatTotal, valueFormat, formatColor} from '../../helpers/FormatNumber/format';
 
 
 type props={
@@ -13,17 +14,17 @@ type props={
 
 export const AreaInfo = ({filterDate, onMonthChange, revenues, expenses}:props) =>{
     const handlePrevMonth = () =>{
-        let [year, month] = filterDate.split('-');
-        let prevMonth = new Date(parseInt(year), parseInt(month) - 1, 1);        
+        let [year, month] = filterDate.split('-');        
+        let prevMonth = new Date(parseInt(year), parseInt(month)-1, 1);       
         prevMonth.setMonth(prevMonth.getMonth()-1)
         onMonthChange(`${prevMonth.getFullYear()} - ${prevMonth.getMonth() + 1}`);
         
     }
     const handleNextMonth = () =>{
-        let [year, month] = filterDate.split('-');
-        let prevMonth = new Date(parseInt(year), parseInt(month) - 1, 1);        
+        let [year, month] = filterDate.split('-');        
+        let prevMonth = new Date(parseInt(year), parseInt(month)-1, 1);       
         prevMonth.setMonth(prevMonth.getMonth()+1)
-        onMonthChange(`${prevMonth.getFullYear()} - ${prevMonth.getMonth()+1}`);
+        onMonthChange(`${prevMonth.getFullYear()} - ${prevMonth.getMonth() + 1}`);
     }
 
 
@@ -39,10 +40,10 @@ export const AreaInfo = ({filterDate, onMonthChange, revenues, expenses}:props) 
             </A.filterMonth>
 
             <A.resumeInfo>
-                    <Resume title={'Receitas'} value={revenues}/>
-                    <Resume title={'Despesas'} value={expenses}/>
-                    <Resume title={'Desvio'} value={(revenues - expenses)}
-                    color={(revenues - expenses) < 0 ? "red": "#55ca80"}/>
+                    <Resume title={'Receitas'} value={valueFormat(revenues)}/>
+                    <Resume title={'Despesas'} value={valueFormat(expenses)}/>
+                    <ResumeDetour title={'Desvio'} value={valueFormatTotal(revenues,expenses)}
+                    color={formatColor(revenues, expenses)}/>
             </A.resumeInfo>
             
 

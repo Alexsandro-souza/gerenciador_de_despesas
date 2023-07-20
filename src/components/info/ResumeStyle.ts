@@ -11,10 +11,18 @@ export const title = styled.div`
 
 `;
 
-export const value = styled.div<{color?:string}>`
+export const value = styled.div`
     text-align: center;
     font-weight: bold;
-    color: ${(props)=>props.color ?? 'black'};
+    color: black;
+    border-radius: 10px;
+    
+  
+`;
+export const valueDetour = styled.div<{color?:string}>`
+    text-align: center;
+    font-weight: bold;
+    color: ${(props)=>props.color};
     border-radius: 10px;
     
   

@@ -3,24 +3,25 @@ import { useState, useEffect } from 'react';
 import * as A from './App.styles';
 import {category} from './data/category';
 import {items} from './data/items';
-import {typesCategory} from './data/tipagem/typesCategory';
 import {typesItem} from './data/tipagem/typesItem';
 import {getCurrentMonth, filterListOfMonth} from './helpers/dateFilter';
 import { Table } from './components/table/table';
 import { AreaInfo } from './components/info/AreaInfo';
 import {InputForm} from './components/input/InputForm';
 
+
  const App = () =>{
   const [itemsList, setItemsList] = useState(items);
   const [filterItemsList, setFilterItemsList] = useState <typesItem[]>([]);
-  const [currentDate, setCurrentDate] = useState(getCurrentMonth());
+  
+  const [currentDate, setCurrentDate] = useState(getCurrentMonth());//2023,7
   const [expenses, setExpenses] = useState(0);
   const [revenues, setRevenues] = useState(0);
 
   
   useEffect(()=>{
-      setFilterItemsList(filterListOfMonth(itemsList, currentDate))
-
+    setFilterItemsList(filterListOfMonth(itemsList, currentDate))   
+    
   }, [itemsList, currentDate])
 
   useEffect(()=>{
@@ -30,17 +31,19 @@ import {InputForm} from './components/input/InputForm';
     
       for (let i in filterItemsList){
         if(category[filterItemsList[i].category].expense){
-          expenseCount += filterItemsList[i].value    
+          expenseCount += filterItemsList[i].value
         }else{
           revenueCount += filterItemsList[i].value;   
         }        
         
       }
+      
+
       setRevenues(revenueCount);
       setExpenses(expenseCount)
       
   },
-  [filterItemsList])
+  [filterItemsList, itemsList])
 
   const handleMonthChange = (newMonth:string)=>{
     setCurrentDate(newMonth)
@@ -48,8 +51,10 @@ import {InputForm} from './components/input/InputForm';
   }
 
   const handleList = (newItem: typesItem) => {
-    setItemsList(prevList =>[...prevList, newItem]);
-  };
+    setItemsList(prevList =>[...prevList, newItem]) 
+};
+
+
 
   return(
     <>

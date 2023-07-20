@@ -1,10 +1,10 @@
 import React from 'react';
 import * as A from './style';
-import { typesItem } from '../../data/tipagem/typesItem';
+import { newTypesItem } from '../../data/tipagem/typesItem';
 import {TableItem} from '../table/item/tableItem';
 
 type props = {
-    list : typesItem[]
+    list : newTypesItem[]
 }
 
 export const Table = ({list} : props) =>{
@@ -22,8 +22,7 @@ export const Table = ({list} : props) =>{
             </thead>
             
             <tbody>
-                {list.map((item, index)=>(
-                   
+                {list.map((item, index)=>(                   
                     <TableItem item={item} key={index}/>
                 ))}
                 

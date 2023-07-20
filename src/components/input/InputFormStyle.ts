@@ -30,10 +30,11 @@ export const buttom = styled.button`
 
 `
 
-export const input = styled.input<{InputProps}>`
+export const input = styled.input<InputProps>`
     outline: none;
     border: solid 1px black;
-    padding: ${(props) => props.padding ? `${props.padding}px` : 0} 0;
+    padding: ${({padding}) => padding ? `${padding}px` : 0} 0;
+    width: ${({width}) => width ? `${width}%` : 0};
     border-radius: 5px;
 
 
@@ -41,8 +42,9 @@ export const input = styled.input<{InputProps}>`
 `
 
 
-export const inputCategory = styled.select<{padding?: number}>`
-    padding: ${(props) => props.padding ? `${props.padding}px` : 0} 0;
+export const inputCategory = styled.select<InputProps>`
+    padding: ${({padding}) => padding ? `${padding}px` : 0} 0;
+    width: ${({width}) => width ? `${width}%` : 0};
     border-radius: 5px;
 `;
 
@@ -61,10 +63,10 @@ export const title = styled.label`
 export const wrape = styled.div`
     display: flex;
     flex-direction: column;
-    flex: 1;    
+    flex: 1;
     
 `
 export const containerWrape = styled.div`
     display: flex;
-    gap: 15px;
+    gap: 20px;
 `;

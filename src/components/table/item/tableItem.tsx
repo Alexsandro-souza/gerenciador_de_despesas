@@ -1,10 +1,11 @@
 import React from 'react';
-import { typesItem } from '../../../data/tipagem/typesItem';
+import { newTypesItem } from '../../../data/tipagem/typesItem';
 import * as A from './style';
 import {category} from '../../../data/category';
+import {formatCurrency} from '../../../helpers/FormatNumber/format';
 
 type props={
-    item : typesItem
+    item : newTypesItem
 }
 
 export const TableItem = ({item} : props) =>{
@@ -21,7 +22,7 @@ return(
         <A.tableCollumn>{item.title}</A.tableCollumn>
         <A.tableCollumn>
             <A.value color={category[item.category].expense ? 'red' : '#55ca80'}>
-                R$ {item.value}
+                R$ {formatCurrency(item.value)}
             </A.value>
         </A.tableCollumn>
     </A.tableLine>
