@@ -1,13 +1,13 @@
 import styled from 'styled-components';
 
 export const wraper = styled.div`
-    padding-bottom: 5px;
+    padding: 5px;
     margin-bottom: 1px;
     max-width: 150px;
 `;
 
-export const divider = styled.div`
-    border-bottom: solid 3px green;
+export const divider = styled.div<{color}>`
+    border-bottom: solid 3px ${props =>props.color};
     margin: 15px 0;
     border-radius: 10px;
 `;
@@ -51,4 +51,9 @@ export const close = styled.button`
 
 export const container = styled.div`
     position: relative;
+`;
+
+export const select = styled.select`
+    cursor: pointer;
+    border: unset;
 `;

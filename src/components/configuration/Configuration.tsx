@@ -3,12 +3,15 @@ import * as A from './ConfigurationStyle';
 import ReactModal from  'react-modal';
 import {FormModal} from './formModal';
 
-export const Configuration = ()=>{
+
+
+export const Configuration = ({AddNewCategory, color})=>{
     const [modalIsOpen, setModalIsOpen] = useState(false);
 
     const handleModal = ()=>{
         setModalIsOpen(!modalIsOpen);  
     }
+
 
 
     return(
@@ -28,7 +31,7 @@ export const Configuration = ()=>{
             }          
         }}
         >
-            <FormModal onClickClose={()=>setModalIsOpen(false)}/>
+            <FormModal color={color} AddNewCategory={AddNewCategory} onClickClose={()=>setModalIsOpen(false)}/>
 
         </ReactModal>
         </>

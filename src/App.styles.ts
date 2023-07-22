@@ -8,9 +8,9 @@ export const Container = styled.div`
 
 `;
 
-export const Header = styled.div`
+export const Header = styled.div<{color}>`
     width: 100%;
-    background-color: Green;
+    background-color: ${props=>props.color};
     height: 160px;
     text-align: center;
     border: solid 1px #304d41;

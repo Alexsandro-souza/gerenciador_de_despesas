@@ -4,92 +4,86 @@ import * as A from './App.styles';
 import {category} from './data/category';
 import {items} from './data/items';
 import {typesItem} from './data/tipagem/typesItem';
+import {typesCategory, typesCategoryObject} from './data/tipagem/typesCategory';
 import {getCurrentMonth, filterListOfMonth} from './helpers/dateFilter';
 import { Table } from './components/table/table';
 import { AreaInfo } from './components/info/AreaInfo';
 import {InputForm} from './components/input/InputForm';
+import {Configuration} from './components/configuration/Configuration';
 
 
- const App = () =>{
+const App = () =>{
   const [itemsList, setItemsList] = useState(items);
-  const [filterItemsList, setFilterItemsList] = useState <typesItem[]>([]);
-  
-  const [currentDate, setCurrentDate] = useState(getCurrentMonth());//2023,7
+  const [filterItemsList, setFilterItemsList] = useState <typesItem[]>([]);  
+  const [currentDate, setCurrentDate] = useState(getCurrentMonth());
   const [expenses, setExpenses] = useState(0);
   const [revenues, setRevenues] = useState(0);
-
+  const [categorys, setCategorys] = useState(category);
+  const[colorBackground, setColorBackground] = useState('green')
+  
   
   useEffect(()=>{
-    setFilterItemsList(filterListOfMonth(itemsList, currentDate))   
-    
+    setFilterItemsList(filterListOfMonth(itemsList, currentDate))
   }, [itemsList, currentDate])
 
   useEffect(()=>{
     let expenseCount = 0;
     let revenueCount = 0;
-
     
       for (let i in filterItemsList){
-        if(category[filterItemsList[i].category].expense){
+        if(categorys[filterItemsList[i].category].expense){
           expenseCount += filterItemsList[i].value
         }else{
           revenueCount += filterItemsList[i].value;   
         }        
-        
       }
-      
-
       setRevenues(revenueCount);
-      setExpenses(expenseCount)
-      
-  },
-  [filterItemsList, itemsList])
+      setExpenses(expenseCount);
+  }, [filterItemsList, itemsList]);
+
+
 
   const handleMonthChange = (newMonth:string)=>{
-    setCurrentDate(newMonth)
-
-  }
+    setCurrentDate(newMonth)};
 
   const handleList = (newItem: typesItem) => {
-    setItemsList(prevList =>[...prevList, newItem]) 
-};
+    
+    setItemsList(prevList =>[...prevList, newItem])};
+
+  const handleCategory = (newCategory) =>{
+    let arr = [...category, newCategory]
+    setCategorys(arr)}
+
+  const handleColor = (color) =>{
+    setColorBackground(color);
+  }
 
 
 
   return(
     <>
       <A.Container/>
-        <A.Header>
+        <A.Header color={colorBackground}>
           <A.HeaderText>Gerenciador Financeiro</A.HeaderText>
         </A.Header>
         <A.Body>
-          <AreaInfo 
-          onMonthChange={handleMonthChange}
-          filterDate={currentDate}
-          revenues = {revenues}
-          expenses = {expenses}
-          />
-          
-          
-          <InputForm addInList={handleList}/>
-          
-          
-          <Table list={filterItemsList}/>
 
+          <AreaInfo 
+          onMonthChange ={handleMonthChange}
+          filterDate ={currentDate}
+          revenues = {revenues}
+          expenses = {expenses}/>
             
-            
+          <Configuration color={handleColor} AddNewCategory={handleCategory}/>          
+
+          <InputForm categorysList={categorys} addInList={handleList}/>
+          
+          <Table categorysList={categorys} list={filterItemsList}/>
 
         </A.Body>
-        
-        
       <A.Container/>
-     
-      
-
-    
     </>
 
   )
-
 }
 export default App;

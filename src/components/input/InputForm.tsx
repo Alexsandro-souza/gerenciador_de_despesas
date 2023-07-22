@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import * as A from './InputFormStyle';
 import {typesItem} from '../../data/tipagem/typesItem';
-import { category } from '../../data/category';
+import { typesCategory} from '../../data/tipagem/typesCategory';
 import {formatDate} from '../../helpers/dateFilter'
 import {formatStringToNumber} from '../../helpers/FormatNumber/format';
 
@@ -9,19 +9,19 @@ import {formatStringToNumber} from '../../helpers/FormatNumber/format';
 
 type props={
     addInList : (newItem : typesItem) => void;
+    categorysList: typesCategory
 }
 
-export const InputForm = ({addInList}:props)=>{
+export const InputForm = ({addInList, categorysList}:props)=>{
     const [date, setDate] = useState('');
     const [categorys, setCategory] = useState<string>('');
     const [title, setTitle] = useState<string>('');
     const [value, setValue] = useState<string>('');
-
-
-    let categoryKeys: string[] = Object.keys(category);
+    
 
 
     const handleAdd = ()=>{
+        //Adicionar validação final se houver algum campo vazio informar
         addInList({
             date: formatDate(date),
             category : categorys,
@@ -29,6 +29,7 @@ export const InputForm = ({addInList}:props)=>{
             value : formatStringToNumber(value)
         })
         clear();
+
     }
 
 
@@ -50,7 +51,7 @@ export const InputForm = ({addInList}:props)=>{
             setDate(e.target.value)}
         } 
         
-    const handleChangeCategory = (e)=> setCategory(e.target.value);
+    const handleChangeCategory = (e)=>{setCategory(e.target.value)} 
     
     const handleChangeTitle = (e)=> {
         const size = e.target.value.length;
@@ -88,8 +89,8 @@ export const InputForm = ({addInList}:props)=>{
                         <A.inputCategory width={100} padding={0.5} name='categoria' value={categorys} onChange={handleChangeCategory}>
                             <>
                             <A.optionCategory></A.optionCategory>
-                            {categoryKeys.map((item,index)=>{
-                            return <A.optionCategory key={index} value={item} >{category[item].title}</A.optionCategory>
+                            {categorysList.map((item,index)=>{
+                            return <A.optionCategory key={index} value={index} >{categorysList[index].title}</A.optionCategory>
                                 
                             })}
                             </>

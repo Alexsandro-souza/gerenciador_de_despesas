@@ -1,13 +1,15 @@
 import React from 'react';
 import * as A from './style';
 import { newTypesItem } from '../../data/tipagem/typesItem';
+import { typesCategory } from '../../data/tipagem/typesCategory';
 import {TableItem} from '../table/item/tableItem';
 
 type props = {
-    list : newTypesItem[]
+    list : newTypesItem[];
+    categorysList: typesCategory
 }
 
-export const Table = ({list} : props) =>{
+export const Table = ({list, categorysList} : props) =>{
     
     return(
         <A.table>
@@ -22,8 +24,8 @@ export const Table = ({list} : props) =>{
             </thead>
             
             <tbody>
-                {list.map((item, index)=>(                   
-                    <TableItem item={item} key={index}/>
+                {list.map((item, index)=>(         
+                    <TableItem categorysList={categorysList} item={item} key={index}/>
                 ))}
                 
 
