@@ -5,22 +5,29 @@ import { colorCategorys, colorBackground } from '../../data/color';
 
 type props={
     onClickClose: ()=> void;
-    AddNewCategory: (newCategory : typesCategoryObject)=> void;
+    addNewCategory: (newCategory : typesCategoryObject)=> void;
     color : (value: string)=> void;
+    colorLine : (value: string)=> void;
 }
 
-export const FormModal = ({onClickClose, AddNewCategory, color }: props)=>{
+export const FormModal = ({onClickClose, addNewCategory, color, colorLine }: props)=>{
     const[category, setCategory] = useState('');
     const[expenseOrRevenues, setExpenseOrRevenues] = useState(false)
     const[colorCategory, setColorCategory] = useState('')
 
     const handleAdd = (e)=>{
         e.preventDefault();
-        AddNewCategory({
+        if(category === '' || colorCategory === ''){
+            alert('Parace que algum campo da categoria não foi preenchido, por favor verifique.')
+        }else if(category === '' && colorCategory === ''){
+            alert('Parace que algum campo da categoria não foi preenchido, por favor verifique.')
+        }
+        addNewCategory({
             title : category,
             color : colorCategory, 
             expense : expenseOrRevenues
         });
+        onClickClose();
     }
     
     const handleChangeCategorys = (e)=>{
@@ -47,25 +54,39 @@ export const FormModal = ({onClickClose, AddNewCategory, color }: props)=>{
     const handleChangeColorCategorys = (e)=>{setColorCategory(e.target.value)}
 
     const hadleChangeColoBackground = (e)=>{
+        onClickClose();
         return color(e.target.value)}
 
     return(
         <>
         <A.container>
             <A.close onClick={onClickClose}>X</A.close>
-            <A.call>Adicione novas categorias e cores de sua preferencia</A.call>
+            <A.call>Personalise como preferir</A.call>
             <form>
+                <A.divider colorLine={colorLine}/>
                 <A.wraper>
-                    <label>Foto </label>
+                    <A.label>Foto de perfil</A.label>
                     <A.input style={{width:'120px'}} type="file" />
                 </A.wraper>
-                <A.divider color={hadleChangeColoBackground}/>
+
                 <A.wraper>
-                    <label>Categoria </label>
+                    <A.label>Cor do background </A.label>
+                    <A.select onChange={hadleChangeColoBackground}>
+                    <option ></option>
+                    {colorBackground.map((item,index)=>{
+                      return <option style={{background: item, color :'white' }} key={index}>{item}</option>
+                    })}
+                    </A.select>
+                </A.wraper>
+
+                <A.divider colorLine={colorLine}/>
+                
+                <A.wraper>
+                    <A.label>Nova Categoria </A.label>
                     <A.input value={category} onChange={handleChangeCategorys} type="text" />
                 </A.wraper>
                 <A.wraper>
-                    <label>Essa categoria é uma despesa </label>
+                    <A.label>Essa categoria é uma despesa </A.label>
                     <A.select onChange={handleChangeExpenseOrRevenues}>
                         <option ></option>
                         <option >Sim</option>
@@ -74,7 +95,7 @@ export const FormModal = ({onClickClose, AddNewCategory, color }: props)=>{
                 </A.wraper>
 
                 <A.wraper>
-                    <label>Cor da categoria </label>
+                    <A.label>Cor da categoria </A.label>
                     <A.select onChange={handleChangeColorCategorys}>
                     <option ></option>
                     {colorCategorys.map((item,index)=>{
@@ -83,20 +104,8 @@ export const FormModal = ({onClickClose, AddNewCategory, color }: props)=>{
 
                     </A.select>
                 </A.wraper>
-                <A.divider/>
-                
-                <A.wraper>
-                    <label>Cor do background </label>
-                    <A.select onChange={hadleChangeColoBackground}>
-                    <option ></option>
-                    {colorBackground.map((item,index)=>{
-                      return <option style={{background: item, color :'white' }} key={index}>{item}</option>
-                    })}
-
-                    </A.select>
-                </A.wraper>
                 <A.button onClick={handleAdd}>Salvar</A.button>
-
+                <A.divider colorLine={colorLine}/>
             </form>   
         </A.container>
         

@@ -5,7 +5,7 @@ import {FormModal} from './formModal';
 
 
 
-export const Configuration = ({AddNewCategory, color})=>{
+export const Configuration = ({addNewCategory, color, colorLine})=>{
     const [modalIsOpen, setModalIsOpen] = useState(false);
 
     const handleModal = ()=>{
@@ -16,7 +16,7 @@ export const Configuration = ({AddNewCategory, color})=>{
 
     return(
         <>
-        <A.configuration show={modalIsOpen} onClick={handleModal}>⚙️</A.configuration>
+        <A.configuration show={modalIsOpen.toString()} onClick={handleModal}><A.wraper>≡</A.wraper></A.configuration>
         <ReactModal 
         isOpen={modalIsOpen}
         style={{
@@ -31,7 +31,11 @@ export const Configuration = ({AddNewCategory, color})=>{
             }          
         }}
         >
-            <FormModal color={color} AddNewCategory={AddNewCategory} onClickClose={()=>setModalIsOpen(false)}/>
+            <FormModal 
+            colorLine={colorLine} 
+            color={color} 
+            addNewCategory={addNewCategory} 
+            onClickClose={()=>setModalIsOpen(false)}/>
 
         </ReactModal>
         </>

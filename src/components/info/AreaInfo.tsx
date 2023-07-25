@@ -40,6 +40,7 @@ export const AreaInfo = ({filterDate, onMonthChange, revenues, expenses}:props) 
             </A.filterMonth>
 
             <A.resumeInfo>
+                
                     <Resume title={'Receitas'} value={valueFormat(revenues)}/>
                     <Resume title={'Despesas'} value={valueFormat(expenses)}/>
                     <ResumeDetour title={'Desvio'} value={valueFormatTotal(revenues,expenses)}

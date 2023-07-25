@@ -6,8 +6,8 @@ export const wraper = styled.div`
     max-width: 150px;
 `;
 
-export const divider = styled.div<{color}>`
-    border-bottom: solid 3px ${props =>props.color};
+export const divider = styled.div<{colorLine}>`
+    border-bottom: solid 3px ${props =>props.colorLine};
     margin: 15px 0;
     border-radius: 10px;
 `;
@@ -19,13 +19,16 @@ export const button = styled.button`
     border: none;
     padding: 5px;
     cursor: pointer;
-    margin-top: 50px;
+    margin-top: 15px;
 `
 
-export const call = styled.h2`
-    margin: 19px 0 80px 0;
+export const call = styled.h2<{}>`
+    margin: 19px 0 50px 0;
     text-align: center;
     line-height: 25px;
+    font-family: 'Poppings', sans-serif;
+    font-weight: 300;
+    
     
     
 `;
@@ -51,9 +54,16 @@ export const close = styled.button`
 
 export const container = styled.div`
     position: relative;
+
+    @media (max-width: 700px) {}
 `;
 
 export const select = styled.select`
     cursor: pointer;
-    border: unset;
+`;
+
+export const label = styled.label`
+    font-family: 'Poppings', sans-serif;
+    font-weight: 100;
+
 `;

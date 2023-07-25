@@ -13,13 +13,24 @@ export const Header = styled.div<{color}>`
     background-color: ${props=>props.color};
     height: 160px;
     text-align: center;
-    border: solid 1px #304d41;
+    border-radius: 19px;  
+    
+`;
+
+export const HeaderWraper = styled.div<{color}>`
+    width: 100%;
+    background-color: ${props=>props.color};
+    height: 17px;
+    
 `;
 
 
 export const HeaderText = styled.h1`
     color: white;
-    padding-top: 30px;
+    padding-top: 10px;
+    font-family: 'Poppings', sans-serif;
+    font-weight: 300;
+    line-height: 35px;
        
 
 `;
@@ -30,6 +41,8 @@ export const Body = styled.div`
     min-height: 500px;
     margin-bottom: 30px;
     position: relative;
+
+    @media (max-width: 377px) {top: 10px;}
 
 `;
 

@@ -4,7 +4,6 @@ import * as A from './App.styles';
 import {category} from './data/category';
 import {items} from './data/items';
 import {typesItem} from './data/tipagem/typesItem';
-import {typesCategory, typesCategoryObject} from './data/tipagem/typesCategory';
 import {getCurrentMonth, filterListOfMonth} from './helpers/dateFilter';
 import { Table } from './components/table/table';
 import { AreaInfo } from './components/info/AreaInfo';
@@ -19,7 +18,7 @@ const App = () =>{
   const [expenses, setExpenses] = useState(0);
   const [revenues, setRevenues] = useState(0);
   const [categorys, setCategorys] = useState(category);
-  const[colorBackground, setColorBackground] = useState('green')
+  const [colorBackground, setColorBackground] = useState('green')
   
   
   useEffect(()=>{
@@ -43,29 +42,24 @@ const App = () =>{
 
 
 
-  const handleMonthChange = (newMonth:string)=>{
-    setCurrentDate(newMonth)};
+  const handleMonthChange = (newMonth:string)=>{setCurrentDate(newMonth)}
 
-  const handleList = (newItem: typesItem) => {
-    
-    setItemsList(prevList =>[...prevList, newItem])};
+  const handleList = (newItem: typesItem) => {setItemsList(prevList =>[...prevList, newItem])}
 
   const handleCategory = (newCategory) =>{
-    let arr = [...category, newCategory]
-    setCategorys(arr)}
+    setCategorys((prevCategory)=> [...prevCategory, newCategory])}
 
-  const handleColor = (color) =>{
-    setColorBackground(color);
-  }
-
-
+  const handleColor = (color) =>{setColorBackground(color)}
 
   return(
     <>
       <A.Container/>
+        
         <A.Header color={colorBackground}>
+          <A.HeaderWraper color={colorBackground}/>
           <A.HeaderText>Gerenciador Financeiro</A.HeaderText>
         </A.Header>
+        
         <A.Body>
 
           <AreaInfo 
@@ -74,11 +68,11 @@ const App = () =>{
           revenues = {revenues}
           expenses = {expenses}/>
             
-          <Configuration color={handleColor} AddNewCategory={handleCategory}/>          
+          <Configuration colorLine={colorBackground} color={handleColor} addNewCategory={handleCategory}/>          
 
           <InputForm categorysList={categorys} addInList={handleList}/>
           
-          <Table categorysList={categorys} list={filterItemsList}/>
+          <Table colorLineTable={colorBackground} categorysList={categorys} list={filterItemsList}/>
 
         </A.Body>
       <A.Container/>

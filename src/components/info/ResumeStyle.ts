@@ -8,6 +8,8 @@ export const container = styled.div`
 export const title = styled.div`
     width: 100%;
     text-align: center;
+    font-family: 'Poppings', sans-serif;
+    font-weight: 300;
 
 `;
 
@@ -16,6 +18,8 @@ export const value = styled.div`
     font-weight: bold;
     color: black;
     border-radius: 10px;
+    font-family: 'Poppings', sans-serif;
+    font-weight: 400;
     
   
 `;
@@ -24,6 +28,8 @@ export const valueDetour = styled.div<{color?:string}>`
     font-weight: bold;
     color: ${(props)=>props.color};
     border-radius: 10px;
+    font-family: 'Poppings', sans-serif;
+    font-weight: 600;
     
   
 `;

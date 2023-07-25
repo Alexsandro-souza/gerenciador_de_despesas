@@ -12,6 +12,10 @@ export const container = styled.div`
     display: flex;
     position: absolute;
     top: -55px;
+
+    @media (max-width: 768px) {
+        display: inline-block;
+    }
 `;
 
 export const filterMonth = styled.div`
@@ -37,6 +41,9 @@ export const displayFilter = styled.div`
 
 export const resumeInfo = styled.div`
     flex: 2;
-    
     display: flex;
+    flex-wrap: wrap;
+  
 `;
+
+//

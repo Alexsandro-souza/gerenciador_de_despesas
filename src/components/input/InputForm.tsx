@@ -20,8 +20,9 @@ export const InputForm = ({addInList, categorysList}:props)=>{
     
 
 
-    const handleAdd = ()=>{
+    const handleAdd = (e)=>{
         //Adicionar validação final se houver algum campo vazio informar
+        e.preventDefault();
         addInList({
             date: formatDate(date),
             category : categorys,
@@ -82,11 +83,11 @@ export const InputForm = ({addInList, categorysList}:props)=>{
                 <A.containerWrape>
                     <A.wrape>
                         <A.title>Data</A.title>
-                        <A.input width={50} name='data' value={date} type='date' onChange={handleChangeDate}/>
+                        <A.input width={80} name='data' value={date} type='date' onChange={handleChangeDate}/>
                     </A.wrape>
                     <A.wrape>
                         <A.title>Categoria</A.title>
-                        <A.inputCategory width={100} padding={0.5} name='categoria' value={categorys} onChange={handleChangeCategory}>
+                        <A.inputCategory width={105} padding={0.5} name='categoria' value={categorys} onChange={handleChangeCategory}>
                             <>
                             <A.optionCategory></A.optionCategory>
                             {categorysList.map((item,index)=>{
@@ -98,17 +99,21 @@ export const InputForm = ({addInList, categorysList}:props)=>{
                     </A.wrape>
                     <A.wrape>
                         <A.title>Titulo</A.title>
-                        <A.input width={100} padding={1.4} name='titulo' value={title} type='text'onChange={handleChangeTitle}/>
+                        <A.input width={80} padding={1.4} name='titulo' value={title} type='text'onChange={handleChangeTitle}/>
                     </A.wrape>
                     <A.wrape>
                         <A.title>Valor</A.title>
                         <A.input width={60} padding={1.4} name='valor' value={value} type='text' onChange={handleChangeValue}/>
                     </A.wrape>
+                    
+                    <A.wrapeButtom>
+                        <A.buttom onClick={handleAdd}>Adicionar</A.buttom>
+                    </A.wrapeButtom>
                 </A.containerWrape>
-                            
+                           
                     
                 </form>
-                <A.buttom onClick={handleAdd}>Adicionar</A.buttom>
+                
             </A.container>
         </>
     )
