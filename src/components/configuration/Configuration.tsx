@@ -23,12 +23,12 @@ export const Configuration = ({addNewCategory, color, colorLine})=>{
             overlay:{backgroundColor: 'rgba(196, 195, 195, 0.75)'},
             content:{
             top: '0',
-            left: '70%',
+            left: '40%',
             right: '-7px',
             bottom: '0',
             border: '1px solid black',
             borderRadius: '10px'
-            }          
+            }         
         }}
         >
             <FormModal 
