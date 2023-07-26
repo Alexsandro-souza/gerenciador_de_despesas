@@ -22,14 +22,15 @@ export const InputForm = ({addInList, categorysList}:props)=>{
 
     const handleAdd = (e)=>{
         e.preventDefault();
-        if(!date){
-            alert('A data não está preenchida')
-        }else if(!categorys){
-            alert('A categoria não está preenchida')
-        }else if(!title){
-            alert('O título não está preenchido')
-        }else if(!value){
-            alert('O valor não está preenchido')
+        const missingField =
+            !date ? "data" :
+            !categorys ? "categoria" :
+            !title ? "título" :
+            !value ? "valor" :
+            null;
+
+        if (missingField) {
+        alert(`O campo ${missingField} não está preenchido`);
         }else{
             addInList({
                 date: formatDate(date),
