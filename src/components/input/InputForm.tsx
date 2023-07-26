@@ -21,15 +21,24 @@ export const InputForm = ({addInList, categorysList}:props)=>{
 
 
     const handleAdd = (e)=>{
-        //Adicionar validação final se houver algum campo vazio informar
         e.preventDefault();
-        addInList({
-            date: formatDate(date),
-            category : categorys,
-            title : title,
-            value : formatStringToNumber(value)
-        })
-        clear();
+        if(!date){
+            alert('A data não está preenchida')
+        }else if(!categorys){
+            alert('A categoria não está preenchida')
+        }else if(!title){
+            alert('O título não está preenchido')
+        }else if(!value){
+            alert('O valor não está preenchido')
+        }else{
+            addInList({
+                date: formatDate(date),
+                category : categorys,
+                title : title,
+                value : formatStringToNumber(value),
+            })
+            clear();
+        }       
 
     }
 

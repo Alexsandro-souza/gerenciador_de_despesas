@@ -1,10 +1,10 @@
 
 
 export type typesItem = {
-    date: Date;
-    category: string;
-    title: string;
-    value: number;
+    date: Date | void;
+    category: string | void;
+    title: string | void;
+    value: number | void;
 }
 
 export type newTypesItem = {
