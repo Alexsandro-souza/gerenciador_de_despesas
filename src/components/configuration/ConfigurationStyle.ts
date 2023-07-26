@@ -1,6 +1,7 @@
 import { styled } from 'styled-components';
 
 
+
 export const configuration = styled.div<{show : string}>`
     position: absolute;
     z-index: 999;
@@ -14,11 +15,12 @@ export const configuration = styled.div<{show : string}>`
 `;
 
 export const wraper = styled.div`
-    padding: 0 3px 2px 3px;
     border: unset;
-    border-radius: 7px;
     background-color: white;
-    font-size: 25px;
-    line-height: 25px;
-    
+    background-image: url(https://www.pngmart.com/files/5/Gears-PNG-File.png);
+    border-radius: 50%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 20px;
+    height: 20px;    
 `;

@@ -16,7 +16,7 @@ export const Configuration = ({addNewCategory, color, colorLine})=>{
 
     return(
         <>
-        <A.configuration show={modalIsOpen.toString()} onClick={handleModal}><A.wraper>≡</A.wraper></A.configuration>
+        <A.configuration show={modalIsOpen.toString()} onClick={handleModal}><A.wraper></A.wraper></A.configuration>
         <ReactModal 
         isOpen={modalIsOpen}
         style={{

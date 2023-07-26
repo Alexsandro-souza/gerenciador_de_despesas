@@ -41,7 +41,6 @@ export const Body = styled.div`
     min-height: 500px;
     margin-bottom: 30px;
     position: relative;
-    background-color: black;
 
     @media (max-width: 425px) {width: 90%;}
     @media (max-width: 377px) {top: 10px;}
