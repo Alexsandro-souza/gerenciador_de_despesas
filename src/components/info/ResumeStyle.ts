@@ -20,6 +20,7 @@ export const value = styled.div`
     border-radius: 10px;
     font-family: 'Poppings', sans-serif;
     font-weight: 400;
+    margin-top: 5px;
     
   
 `;
@@ -30,6 +31,7 @@ export const valueDetour = styled.div<{color?:string}>`
     border-radius: 10px;
     font-family: 'Poppings', sans-serif;
     font-weight: 600;
+    margin-top: 5px;
     
   
 `;

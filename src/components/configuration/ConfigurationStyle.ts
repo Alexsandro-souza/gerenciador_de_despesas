@@ -6,21 +6,18 @@ export const configuration = styled.div<{show : string}>`
     position: absolute;
     z-index: 999;
     cursor: pointer;
-    top: -150px;
-    right: -11.5%;
-    font-size: 20px;
-    display: ${props => (props.show == 'false'? 'block' : 'none')};
-
-    @media (max-width: 377px) {top: -160px;}
-`;
-
-export const wraper = styled.div`
-    border: unset;
-    background-color: white;
     background-image: url(https://www.pngmart.com/files/5/Gears-PNG-File.png);
-    border-radius: 50%;
+    width: 20px;
+    height: 20px;
     background-size: contain;
     background-repeat: no-repeat;
-    width: 20px;
-    height: 20px;    
+    background-color: white;
+    border-radius: 50%;
+    left: 5px;
+    top: 15px;
+   
+    display: ${props => (props.show == 'false'? 'block' : 'none')};
+    
+    
+    
 `;

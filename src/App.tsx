@@ -53,6 +53,7 @@ const App = () =>{
 
   return(
     <>
+      <Configuration colorLine={colorBackground} color={handleColor} addNewCategory={handleCategory}/> 
       <A.Container/>
         
         <A.Header color={colorBackground}>
@@ -68,7 +69,7 @@ const App = () =>{
           revenues = {revenues}
           expenses = {expenses}/>
             
-          <Configuration colorLine={colorBackground} color={handleColor} addNewCategory={handleCategory}/>          
+                   
 
           <InputForm categorysList={categorys} addInList={handleList}/>
           

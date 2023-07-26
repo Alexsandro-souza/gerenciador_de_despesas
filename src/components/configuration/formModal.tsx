@@ -62,55 +62,54 @@ export const FormModal = ({onClickClose, addNewCategory, color, colorLine }: pro
 
     return(
         <>
-        <A.container>
-            <A.close onClick={onClickClose}>X</A.close>
             <A.call>Personalise como preferir</A.call>
             <form>
-                <A.divider colorLine={colorLine}/>
-                <A.wraper>
-                    <A.label>Foto de perfil</A.label>
-                    <A.input style={{width:'120px'}} type="file" />
-                </A.wraper>
-
-                <A.wraper>
-                    <A.label>Cor do background </A.label>
-                    <A.select onChange={hadleChangeColoBackground}>
-                    <option ></option>
-                    {colorBackground.map((item,index)=>{
-                      return <option style={{background: item, color :'white' }} key={index}>{item}</option>
-                    })}
-                    </A.select>
-                </A.wraper>
-
-                <A.divider colorLine={colorLine}/>
+                <A.container>
+                <A.close onClick={onClickClose}>X</A.close>
                 
-                <A.wraper>
-                    <A.label>Nova Categoria </A.label>
-                    <A.input value={category} onChange={handleChangeCategorys} type="text" />
-                </A.wraper>
-                <A.wraper>
-                    <A.label>Essa categoria é uma despesa </A.label>
-                    <A.select onChange={handleChangeExpenseOrRevenues}>
-                        <option ></option>
-                        <option >Sim</option>
-                        <option >Não</option>
-                    </A.select>
-                </A.wraper>
+                    <A.dividerLeft>
+                        <A.wraper>
+                            <A.label>Foto de perfil</A.label>
+                            <A.input style={{width:'120px'}} type="file" />
+                        </A.wraper>
+                        <A.wraper>
+                            <A.label>Cor do background </A.label>
+                            <A.select onChange={hadleChangeColoBackground}>
+                            <option ></option>
+                            {colorBackground.map((item,index)=>{
+                            return <option style={{background: item, color :'white' }} key={index}>{item}</option>
+                            })}
+                            </A.select>
+                        </A.wraper>
+                    </A.dividerLeft>
 
-                <A.wraper>
-                    <A.label>Cor da categoria </A.label>
-                    <A.select onChange={handleChangeColorCategorys}>
-                    <option ></option>
-                    {colorCategorys.map((item,index)=>{
-                      return <option style={{background: item, color :'white' }} key={index}>{item}</option>
-                    })}
-
-                    </A.select>
-                </A.wraper>
+                    <A.dividerRigth colorLine={colorLine}>    
+                        <A.wraper>
+                            <A.label>Nova Categoria </A.label>
+                            <A.input value={category} onChange={handleChangeCategorys} type="text" />
+                        </A.wraper>
+                        <A.wraper>
+                            <A.label>Cor da categoria </A.label>
+                            <A.select onChange={handleChangeColorCategorys}>
+                            <A.option ></A.option>
+                            {colorCategorys.map((item,index)=>{
+                            return <A.option style={{background: item, color :'white' }} key={index}>{item}</A.option>
+                            })}
+                            </A.select>
+                        </A.wraper>
+                        <A.wraper>
+                            <A.label>Essa categoria é uma despesa </A.label>
+                            <A.select onChange={handleChangeExpenseOrRevenues}>
+                                <A.option ></A.option>
+                                <A.option >Sim</A.option>
+                                <A.option >Não</A.option>
+                            </A.select>
+                        </A.wraper>
+                    </A.dividerRigth>
+                </A.container>
                 <A.button onClick={handleAdd}>Salvar</A.button>
-                <A.divider colorLine={colorLine}/>
             </form>   
-        </A.container>
+        
         
         </>
         

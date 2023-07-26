@@ -16,8 +16,8 @@ export const table = styled.table`
     top: 103px;
     border-collapse: collapse;
 
-    @media (max-width: 768px) {top: 133px;}
-    @media (max-width: 715px) {top: 313px;}
+    @media (max-width: 768px) {top: 139px;}
+    @media (max-width: 715px) {top: 329px;}
     @media (max-width: 605px) {top: 236px;}
     @media (max-width: 372px) {top: 256px;}
     

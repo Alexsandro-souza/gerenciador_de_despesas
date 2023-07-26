@@ -31,6 +31,8 @@ export const HeaderText = styled.h1`
     font-family: 'Poppings', sans-serif;
     font-weight: 300;
     line-height: 35px;
+
+    @media (max-width: 405px) {padding-top: 30px;}
        
 
 `;

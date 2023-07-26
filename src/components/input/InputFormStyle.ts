@@ -15,9 +15,9 @@ export const container = styled.div`
     -webkit-box-shadow: 12px 8px 8px -6px rgba(168,162,162,0.49);
     -moz-box-shadow: 12px 8px 8px -6px rgba(168,162,162,0.49);
     position: absolute;
-    top: 25px;
+    top: 30px;
 
-    @media (max-width: 768px) {top: 60px;}
+    @media (max-width: 768px) {top: 66px;}
     @media (max-width: 372px) {top: 83px;}
     
     
@@ -31,6 +31,7 @@ export const input = styled.input<InputProps>`
     padding: ${({padding}) => padding ? `${padding}px` : 0} 0;
     width: ${({width}) => width ? `${width}%` : 0};
     border-radius: 5px;
+    margin-top: 3px;
 
     @media (max-width: 605px) {
         min-width: 105px;
@@ -43,6 +44,7 @@ export const inputCategory = styled.select<InputProps>`
     padding: ${({padding}) => padding ? `${padding}px` : 0} 0;
     min-width: ${({width}) => width ? `${width}px` : 0};
     border-radius: 5px;
+    margin-top: 3px;
 
     @media (max-width: 605px) {
         min-width: 105px;

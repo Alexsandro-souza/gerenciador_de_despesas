@@ -16,18 +16,18 @@ export const Configuration = ({addNewCategory, color, colorLine})=>{
 
     return(
         <>
-        <A.configuration show={modalIsOpen.toString()} onClick={handleModal}><A.wraper></A.wraper></A.configuration>
+        <A.configuration show={modalIsOpen.toString()} onClick={handleModal}></A.configuration>
         <ReactModal 
         isOpen={modalIsOpen}
         style={{
             overlay:{backgroundColor: 'rgba(196, 195, 195, 0.75)'},
             content:{
-            top: '0',
-            left: '40%',
-            right: '-7px',
-            bottom: '0',
+            top: '-10px',
+            left: '0',
+            right: '0',
+            bottom: '60%',
             border: '1px solid black',
-            borderRadius: '10px'
+            borderRadius: '15px'
             }         
         }}
         >

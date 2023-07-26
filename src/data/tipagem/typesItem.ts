@@ -8,7 +8,7 @@ export type typesItem = {
 }
 
 export type newTypesItem = {
-    date: Date;
+    date: Date | void;
     category: string;
     title: string;
     value: number | string;
