@@ -93,7 +93,7 @@ export const InputForm = ({addInList, categorysList}:props)=>{
                 <A.containerWrape>
                     <A.wrape>
                         <A.title>Data</A.title>
-                        <A.input width={80} name='data' value={date} type='date' onChange={handleChangeDate}/>
+                        <A.input width={85} name='data' value={date} type='date' onChange={handleChangeDate}/>
                     </A.wrape>
                     <A.wrape>
                         <A.title>Categoria</A.title>

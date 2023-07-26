@@ -19,10 +19,8 @@ export const table = styled.table`
     @media (max-width: 768px) {top: 133px;}
     @media (max-width: 715px) {top: 313px;}
     @media (max-width: 605px) {top: 236px;}
-    @media (max-width: 519px) {top: 256px;}
-    @media (max-width: 403px) {top: 278px;}
-    @media (max-width: 361px) {top: 304px;}
-    @media (max-width: 337px) {top: 306px;}
+    @media (max-width: 372px) {top: 256px;}
+    
     
 
 `;

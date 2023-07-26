@@ -18,10 +18,9 @@ export const container = styled.div`
     top: 25px;
 
     @media (max-width: 768px) {top: 60px;}
-    @media (max-width: 519px) {top: 83px;}
-    @media (max-width: 403px) {top: 105px;}
-    @media (max-width: 361px) {top: 130px;}
-    @media (max-width: 337px) {top: 130px}
+    @media (max-width: 372px) {top: 83px;}
+    
+    
 
 `;
 
