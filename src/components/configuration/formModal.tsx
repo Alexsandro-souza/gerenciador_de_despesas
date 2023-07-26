@@ -21,13 +21,16 @@ export const FormModal = ({onClickClose, addNewCategory, color, colorLine }: pro
             alert('Parace que algum campo da categoria não foi preenchido, por favor verifique.')
         }else if(category === '' && colorCategory === ''){
             alert('Parace que algum campo da categoria não foi preenchido, por favor verifique.')
+        }else{
+            addNewCategory({
+                title : category,
+                color : colorCategory, 
+                expense : expenseOrRevenues
+            })
+            onClickClose();
         }
-        addNewCategory({
-            title : category,
-            color : colorCategory, 
-            expense : expenseOrRevenues
-        });
-        onClickClose();
+        
+       
     }
     
     const handleChangeCategorys = (e)=>{
