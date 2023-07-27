@@ -29,7 +29,8 @@ export const input = styled.input<InputProps>`
     outline: none;
     border: solid 1px black;
     padding: ${({padding}) => padding ? `${padding}px` : 0} 0;
-    width: ${({width}) => width ? `${width}%` : 0};
+    min-width: ${({width}) => width ? `${width}px` : 0};
+    width: ${({width}) => width ? `${width}px` : 0};
     border-radius: 5px;
     margin-top: 3px;
 
@@ -43,6 +44,7 @@ export const input = styled.input<InputProps>`
 export const inputCategory = styled.select<InputProps>`
     padding: ${({padding}) => padding ? `${padding}px` : 0} 0;
     min-width: ${({width}) => width ? `${width}px` : 0};
+    width: ${({width}) => width ? `${width}px` : 0};
     border-radius: 5px;
     margin-top: 3px;
 
